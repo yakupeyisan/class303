@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasyon</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #10131c;
+        }
+        .box{
+            width: 70px;
+            height: 70px;
+            background-color: #212532;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            transition: 0.5s;
+            justify-content: center;
+            align-items: center;
+            transition-delay: 0.8s;
+        }
+        .box>span{
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #fff;
+            transform: translate(calc(12px * var(--x)), calc(12px * var(--y)) );
+            transition: width 0.5s, height 0.5s, transform 0.5s, background-color 0.5s;
+            transition-delay: calc(0.1s * var(--i));
+        }
+        .box:hover{
+            width: 200px;
+            height: 200px;
+            transition-delay: 0s;
+        }
+        .box:hover>span{
+            transform: translate(calc(60px * var(--x)), calc(60px * var(--y)) );
+            width: 50px;
+            height: 50px;
+            background-color: #333849;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span style="--i:0;--x:-1;--y:0"></span>
+        <span style="--i:1;--x:1;--y:0"></span>
+        <span style="--i:2;--x:0;--y:-1"></span>
+        <span style="--i:3;--x:0;--y:1"></span>
+        <span style="--i:4;--x:-1;--y:-1"></span>
+        <span style="--i:5;--x:1;--y:1"></span>
+        <span style="--i:6;--x:0;--y:0"></span>
+        <span style="--i:7;--x:1;--y:-1"></span>
+        <span style="--i:8;--x:-1;--y:1"></span>
+    </div>
+</body>
+</html>
