@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="tr.ico">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-image: url('bg.jfif');
+        }
+
+        .content {
+            width: 50%;
+            height: 222px;
+            background-color: rgba(221, 221, 221, 0.5);
+            position: absolute;
+            border-radius: 30px;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .main {
+            margin: 80px 50px 10px;
+        }
+
+        .icon-box {
+            background: #00264dff;
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        .icon-box>i {
+            color: white;
+            font-size: 48px;
+            margin: 33px 36px;
+        }
+
+        input {
+            height: 30px;
+            border: none;
+            width: calc(100% - 33px);
+            background-color: #3b5473;
+            color: #a8aebc;
+            padding-left: 33px;
+            border-radius: 5px;
+        }
+
+        input:focus {
+            border: 0px;
+            outline: none;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group>i {
+            width: 30px;
+            background-color: #00264d;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: white;
+            line-height: 31px;
+            text-align: center;
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        button {
+            width: 80%;
+            height: 30px;
+            border: none;
+            position: absolute;
+            top: calc(100% + 2px);
+            background-color: #ddd;
+            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
+                    from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+            border-radius: 0px 0px 15px 15px;
+            left: 10%;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="main">
+            <div class="icon-box">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Username">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="form-group" style="margin-top:15px">
+                <input type="password" placeholder="Password">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+        </div>
+        <button class="btn-login">Login</button>
+    </div>
+</body>
+
+</html>

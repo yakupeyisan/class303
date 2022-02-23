@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasyon</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #d2d8d2;
+            transition: .3s;
+            animation: cube-animation 2s infinite;
+        }
+        @-webkit-keyframes cube-animation{
+            0%{
+                width: 100px;
+                height: 100px;
+                background-color: #d2d8d2;
+            }
+            50%{
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+            100%{
+                width: 100px;
+                height: 100px;
+                background-color: #d2d8d2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
