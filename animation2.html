@@ -39,12 +39,12 @@
             transition: width 0.5s, height 0.5s, transform 0.5s, background-color 0.5s;
             transition-delay: calc(0.1s * var(--i));
         }
-        .box:hover{
+        .box.active{
             width: 200px;
             height: 200px;
             transition-delay: 0s;
         }
-        .box:hover>span{
+        .box.active>span{
             transform: translate(calc(60px * var(--x)), calc(60px * var(--y)) );
             width: 50px;
             height: 50px;
@@ -64,5 +64,11 @@
         <span style="--i:7;--x:1;--y:-1"></span>
         <span style="--i:8;--x:-1;--y:1"></span>
     </div>
+    <script>
+        let box = document.querySelector(".box");
+        box.onclick=function(){
+            box.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
