@@ -84,3 +84,29 @@ from Books
 INNER JOIN PoetBooks ON Books.Id=PoetBooks.BookId
 INNER JOIN Poets ON PoetBooks.PoetId=Poets.Id
 INNER JOIN Categories ON Books.CategoryId=Categories.Id
+
+Begin Transaction
+	Begin Try
+		INSERT INTO [dbo].[Transactions]([UserId],[Balance])
+			 VALUES(1,'-2000');
+
+		INSERT INTO [dbo].[Transactions]([UserId],[Balance])
+			 VALUES(2,'20.00');
+		Commit
+	End Try
+	BEGIN Catch
+		Rollback
+		print 'hata';
+	End Catch
+
+
+Create Procedure MakeTransaction 
+    @SenderId int,
+    @ReceiverId int,
+    @Balance int
+as 
+INSERT INTO [dbo].[Transactions]([UserId],[Balance])
+			 VALUES(@SenderId,-1*@Balance);
+
+INSERT INTO [dbo].[Transactions]([UserId],[Balance])
+			 VALUES(@ReceiverId,@Balance);
