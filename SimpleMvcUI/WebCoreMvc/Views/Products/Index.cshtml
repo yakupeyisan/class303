@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Users Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Users Page</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("0.00")</td>
+            </tr>
+        }
+    </tbody>
+</table>

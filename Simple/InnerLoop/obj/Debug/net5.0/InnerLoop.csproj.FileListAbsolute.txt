@@ -1,0 +1,16 @@
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.csproj.AssemblyReference.cache
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.AssemblyInfoInputs.cache
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.AssemblyInfo.cs
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.csproj.CoreCompileInputs.cache
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.exe
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.deps.json
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.runtimeconfig.json
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.runtimeconfig.dev.json
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.dll
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\ref\InnerLoop.dll
+C:\Egitim\Aksam\Simple\InnerLoop\bin\Debug\net5.0\InnerLoop.pdb
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.dll
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\ref\InnerLoop.dll
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.pdb
+C:\Egitim\Aksam\Simple\InnerLoop\obj\Debug\net5.0\InnerLoop.genruntimeconfig.cache

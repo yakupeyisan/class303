@@ -1,0 +1,15 @@
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.exe
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.deps.json
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.runtimeconfig.json
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.runtimeconfig.dev.json
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.dll
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\ref\Simple.dll
+C:\Egitim\Aksam\Simple\Simple\bin\Debug\net5.0\Simple.pdb
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.GeneratedMSBuildEditorConfig.editorconfig
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.AssemblyInfoInputs.cache
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.AssemblyInfo.cs
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.csproj.CoreCompileInputs.cache
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.dll
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\ref\Simple.dll
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.pdb
+C:\Egitim\Aksam\Simple\Simple\obj\Debug\net5.0\Simple.genruntimeconfig.cache
