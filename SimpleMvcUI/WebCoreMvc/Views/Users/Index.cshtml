@@ -1,28 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Users Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome Users Page</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
+<a class="btn btn-success" asp-controller="Users" asp-action="Add">Add</a>
+<a class="btn btn-sm btn-primary text-light" asp-controller="Users" asp-action="Add">+</a>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in ViewBag.users)
         {
-            <tr>
-                <td>@user.Id</td>
-                <td>@user.FirstName</td>
-                <td>@user.LastName</td>
-            </tr>
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>
+                <a class="btn btn-link" href="/Users/Update/@user.Id">Edit</a>
+                <a class="btn btn-link" href="/Users/Delete/@user.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
