@@ -23,10 +23,6 @@ namespace WebCoreMvc.DataAccess.Concrete
             using (var context = new SimpleDbContext())
             {
                 return context.Set<User>().SingleOrDefault(u=>u.Id== id);
-                /*
-                 * Select * From Users u
-                 * where u.Id=?
-                 */
             }
         }
         public bool Add(User user)

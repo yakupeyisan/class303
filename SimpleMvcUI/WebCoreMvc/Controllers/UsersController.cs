@@ -12,27 +12,43 @@ namespace WebCoreMvc.Controllers
     public class UsersController : Controller
     {
         private IUserRepository _userRepository;
+
         public UsersController()
         {
             _userRepository = new UserRepository();
         }
+
         public IActionResult Index()
         {
-            ViewBag.users = _userRepository.GetAll();
+            ViewBag.users = this._userRepository.GetAll();
             return View();
         }
-        public IActionResult Add()
+        public IActionResult Add(string Message=null)
         {
+            ViewBag.message = Message;
             return View();
         }
         public IActionResult Update(int id)
         {
             var user=this._userRepository.GetById(id);
+            if (user == null)
+            {
+                return RedirectToAction("Index");
+            }
             ViewBag.user = user;
             return View();
         }
         public IActionResult Save(User user)
         {
+            string route = (user.Id == 0) ? "Add" : "Update";
+            if (user.FirstName == null)
+            {
+                return RedirectToAction(route,new ErrorResult("Please enter FirstName"));
+            }
+            if (user.LastName == null)
+            {
+                return RedirectToAction(route, new ErrorResult("Please enter LastName"));
+            }
             if (user.Id == 0)
             {
                 this._userRepository.Add(user);
