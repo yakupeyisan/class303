@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body>article{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+        }
+        .bg-red{
+            background-color: red;
+        }
+        .bg-green{
+            background-color: green;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+        .slide-bar{
+            z-index: 10;
+            position: fixed;
+            border-radius: 10px;
+            padding: 8px 0 8px 0;
+            width: 20px;
+            top: 50%;
+            right: 25px;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.533);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide-bar>a{
+            content: "";
+            margin-bottom: 30px;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.568);
+            border-radius: 50%;
+        }
+        .slide-bar>a:last-child{
+            margin-bottom: 0px;
+        }
+        .slide-bar>a.active{
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-bar">
+        <a class="indicator active" href="#home"></a>
+        <a class="indicator" href="#user"></a>
+        <a class="indicator" href="#product"></a>
+    </div>
+    <article id="home" class="bg-red"></article>
+    <article id="user" class="bg-green"></article>
+    <article id="product" class="bg-blue"></article>
+    <script>
+        var elements=document.querySelectorAll(".indicator");
+        elements.forEach(el=>{
+            el.onclick=function(){
+                var active=document.querySelector(".active");
+                active.classList.remove("active");
+                el.classList.add("active");
+            } 
+        })
+    </script>
+</body>
+</html>

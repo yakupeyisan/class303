@@ -23,18 +23,19 @@ namespace WebCoreMvc.Controllers
             ViewBag.users = this._userRepository.GetAll();
             return View();
         }
-        public IActionResult Add(string Message=null)
+        public IActionResult Add(string message=null)
         {
-            ViewBag.message = Message;
+            ViewBag.message = message;
             return View();
         }
-        public IActionResult Update(int id)
+        public IActionResult Update(int id,string message=null)
         {
             var user=this._userRepository.GetById(id);
             if (user == null)
             {
                 return RedirectToAction("Index");
             }
+            ViewBag.message = message;
             ViewBag.user = user;
             return View();
         }
@@ -43,11 +44,11 @@ namespace WebCoreMvc.Controllers
             string route = (user.Id == 0) ? "Add" : "Update";
             if (user.FirstName == null)
             {
-                return RedirectToAction(route,new ErrorResult("Please enter FirstName"));
+                return RedirectToAction(route,new ErrorResult(user.Id,"Please enter FirstName"));
             }
             if (user.LastName == null)
             {
-                return RedirectToAction(route, new ErrorResult("Please enter LastName"));
+                return RedirectToAction(route, new ErrorResult(user.Id, "Please enter LastName"));
             }
             if (user.Id == 0)
             {

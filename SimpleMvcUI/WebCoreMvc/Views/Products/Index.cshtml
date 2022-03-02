@@ -1,28 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Users Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome Users Page</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<button class="btn btn-sm btn-primary">+</button>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (Product product in ViewBag.products)
+    {
+    <div class="col-md-4 col-sm-12">
+        <div class="card h-100">
+            <img src="@product.ImageUrl" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">@product.Name</h5>
+                <p class="card-text">@product.Description.Substring(0, (product.Description.Length>110)?110: product.Description.Length)...</p>
+                <button class="btn btn-sm btn-danger float-right"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn btn-sm btn-warning float-right mr-1"><i class="fa-solid fa-pencil"></i></button>
+            </div>
+        </div>
+    </div>
+    }
 </div>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in ViewBag.products)
-        {
-            <tr>
-                <td>@product.Id</td>
-                <td>@product.Name</td>
-                <td>@product.Price.ToString("0.00")</td>
-            </tr>
-        }
-    </tbody>
-</table>
