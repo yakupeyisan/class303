@@ -1,15 +1,11 @@
 ﻿using System.Collections.Generic;
+using WebCoreMvc.Core.DataAccess;
 using WebCoreMvc.Models;
 
 namespace WebCoreMvc.DataAccess.Abstract
 {
-    interface IProductRepository
+    interface IProductRepository: IBaseRepository<Product>
     {
-        List<Product> GetAll();
         List<Product> GetAllByCategoryId(int categoryId);
-        Product GetById(int id);
-        bool Add(Product product);
-        bool Update(Product product);
-        bool DeleteById(int id);
     }
 }

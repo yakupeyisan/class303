@@ -7,7 +7,7 @@ using WebCoreMvc.Models;
 
 namespace WebCoreMvc.DataAccess.Abstract
 {
-    public interface IUserRepository:IBaseRepository<User>
+    public interface ICategoryRepository:IBaseRepository<Category>
     {
     }
 }

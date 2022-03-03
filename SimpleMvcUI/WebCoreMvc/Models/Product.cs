@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebCoreMvc.Core.Model;
 
 namespace WebCoreMvc.Models
 {
-    public class Product
+    public class Product:IModel
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
@@ -18,9 +19,9 @@ namespace WebCoreMvc.Models
         {
         }
 
-        public Product(int ıd, int categoryId, string ımageUrl, string name, float price, string description)
+        public Product(int id, int categoryId, string ımageUrl, string name, float price, string description)
         {
-            Id = ıd;
+            Id = id;
             CategoryId = categoryId;
             ImageUrl = ımageUrl;
             Name = name;
