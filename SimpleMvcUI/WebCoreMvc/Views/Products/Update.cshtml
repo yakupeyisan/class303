@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Product Update";
+}
+
+<form action="/Products/Save" method="post">
+    @{ if (ViewBag.message != null)
+        {
+            <div class="alert alert-danger">@ViewBag.message</div>
+        }
+    }
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select name="CategoryId" class="form-control">
+            <option value="1" selected>Sebze</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="text" name="ImageUrl" class="form-control" value="@ViewBag.product.ImageUrl">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" name="Name" class="form-control" value="@ViewBag.product.Name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" name="Price" class="form-control" value="@ViewBag.product.Price">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="Description" rows="3" class="form-control">@ViewBag.product.Description</textarea>
+    </div>
+    <input type="hidden" name="Id" value="@ViewBag.product.Id"/>
+    <button type="submit" class="btn btn-warning  col-md-3">Update</button>
+</form>

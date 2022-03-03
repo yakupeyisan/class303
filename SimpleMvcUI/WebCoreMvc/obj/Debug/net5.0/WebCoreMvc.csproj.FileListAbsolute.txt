@@ -148,3 +148,5 @@ C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\WebCoreMvc.pdb
 C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\WebCoreMvc.genruntimeconfig.cache
 C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\Razor\Views\Users\Update.cshtml.g.cs
 C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\Razor\Views\Users\Add.cshtml.g.cs
+C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\Razor\Views\Products\Add.cshtml.g.cs
+C:\Aksam\SimpleMvcUI\WebCoreMvc\obj\Debug\net5.0\Razor\Views\Products\Update.cshtml.g.cs

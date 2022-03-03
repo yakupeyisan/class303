@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Users Page";
 }
-<button class="btn btn-sm btn-primary">+</button>
+<a href="/Products/Add" class="btn btn-sm btn-primary">+</a>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     @foreach (Product product in ViewBag.products)
     {
@@ -11,8 +11,8 @@
             <div class="card-body">
                 <h5 class="card-title">@product.Name</h5>
                 <p class="card-text">@product.Description.Substring(0, (product.Description.Length>110)?110: product.Description.Length)...</p>
-                <button class="btn btn-sm btn-danger float-right"><i class="fa-solid fa-trash"></i></button>
-                <button class="btn btn-sm btn-warning float-right mr-1"><i class="fa-solid fa-pencil"></i></button>
+                <a class="btn btn-sm btn-danger float-right" href="/Products/Delete/@product.Id"><i class="fa-solid fa-trash"></i></a>
+                <a class="btn btn-sm btn-warning float-right mr-1" href="/Products/Update/@product.Id"><i class="fa-solid fa-pencil"></i></a>
             </div>
         </div>
     </div>
