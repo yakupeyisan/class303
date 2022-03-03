@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Category Add";
+}
+
+<form action="/Categories/Save" method="post">
+    @{ if (ViewBag.message != null)
+        {
+            <div class="alert alert-danger">@ViewBag.message</div>
+        }
+    }
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" name="Name" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success  col-md-3">Add</button>
+</form>

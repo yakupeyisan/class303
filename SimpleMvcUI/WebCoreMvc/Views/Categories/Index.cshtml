@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Categories Page";
+}
+<a class="btn btn-sm btn-primary text-light" asp-controller="Categories" asp-action="Add">+</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category category in ViewBag.categories)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>
+                    <a class="btn btn-link" href="/Categories/Update/@category.Id">Edit</a>
+                    <a class="btn btn-link" href="/Categories/Delete/@category.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
