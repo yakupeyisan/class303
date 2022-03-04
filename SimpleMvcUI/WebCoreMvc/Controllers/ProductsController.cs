@@ -12,19 +12,22 @@ namespace WebCoreMvc.Controllers
     public class ProductsController : Controller
     {
         private IProductRepository _productRepository;
+        private ICategoryRepository _categoryRepository;
 
         public ProductsController()
         {
             _productRepository = new ProductRepository();
+            _categoryRepository = new CategoryRepository();
         }
 
         public IActionResult Index()
         {
-            ViewBag.products = this._productRepository.GetAll();
+            ViewBag.products = this._productRepository.GetAllWithCategory();
             return View();
         }
         public IActionResult Add(string message)
         {
+            ViewBag.categories = this._categoryRepository.GetAll();
             ViewBag.message = message;
             return View();
         }

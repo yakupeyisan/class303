@@ -18,6 +18,23 @@ namespace WebCoreMvc.DataAccess.Concrete
                 return context.Set<Product>().Where(p => p.CategoryId == categoryId).ToList();
             }
         }
+        public List<ProductDto> GetAllWithCategory()
+        {
+            using (var context = new SimpleDbContext())
+            {
+                var result = from p in context.Products
+                             join c in context.Categories on p.CategoryId equals c.Id
+                            select new ProductDto() { 
+                                 Id=p.Id,
+                                 CategoryName=c.Name,
+                                 Name=p.Name,
+                                ImageUrl =p.ImageUrl,
+                                 Price=p.Price,
+                                 Description=p.Description
+                             };
+                return result.ToList();
+            }
+        }
 
     }
 }

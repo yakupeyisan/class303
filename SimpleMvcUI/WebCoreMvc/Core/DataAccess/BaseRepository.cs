@@ -9,7 +9,7 @@ using WebCoreMvc.Models;
 namespace WebCoreMvc.Core.DataAccess
 {
     public abstract class BaseRepository<T>
-        where T : class, IModel,new()
+        where T : class, IModel,new()//
     {
         public virtual List<T> GetAll()
         {

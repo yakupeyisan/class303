@@ -11,7 +11,10 @@
     <div class="mb-3">
         <label class="form-label">Category</label>
         <select name="CategoryId" class="form-control">
-            <option value="1" selected>Sebze</option>
+            @foreach (Category category in ViewBag.categories)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
         </select>
     </div>
     <div class="mb-3">

@@ -1,8 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Categories Page";
 }
-<a class="btn btn-sm btn-primary text-light" asp-controller="Categories" asp-action="Add">+</a>
-<table class="table table-striped">
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">+</button>
+@*<a class="btn btn-sm btn-primary text-light" asp-controller="Categories" asp-action="Add">+</a>*@
+<table id="categoryTable" class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -24,3 +26,51 @@
         }
     </tbody>
 </table>
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addForm">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success  col-md-3">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#addForm').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/Categories/Save",
+            data: $('#addForm').serialize(),
+            cache: false,
+            success: function (result) {
+                $("#categoryTable>tbody").append(
+                    '<tr>' +
+                    '<td>' + result.id + '</td>' +
+                    '<td>' + result.name + '</td>' +
+                    '<td>' +
+                    '<a class="btn btn-link" href="/Categories/Update/' + result.id + '">Edit</a>' +
+                    '<a class="btn btn-link" href="/Categories/Delete/' + result.id + '">Delete</a>' +
+                    '</td>' +
+                    '</tr>'
+                );
+
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+        })
+    });
+</script>

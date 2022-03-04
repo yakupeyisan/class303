@@ -7,5 +7,6 @@ namespace WebCoreMvc.DataAccess.Abstract
     interface IProductRepository: IBaseRepository<Product>
     {
         List<Product> GetAllByCategoryId(int categoryId);
+        List<ProductDto> GetAllWithCategory();
     }
 }

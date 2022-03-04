@@ -3,13 +3,13 @@
 }
 <a href="/Products/Add" class="btn btn-sm btn-primary">+</a>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    @foreach (Product product in ViewBag.products)
+    @foreach (ProductDto product in ViewBag.products)
     {
     <div class="col-md-4 col-sm-12">
         <div class="card h-100">
             <img src="@product.ImageUrl" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">@product.Name</h5>
+                <h5 class="card-title">@product.Name <small class="badge badge-dark">@product.CategoryName</small></h5>
                 <p class="card-text">@product.Description.Substring(0, (product.Description.Length>110)?110: product.Description.Length)...</p>
                 <a class="btn btn-sm btn-danger float-right" href="/Products/Delete/@product.Id"><i class="fa-solid fa-trash"></i></a>
                 <a class="btn btn-sm btn-warning float-right mr-1" href="/Products/Update/@product.Id"><i class="fa-solid fa-pencil"></i></a>

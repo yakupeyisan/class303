@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,12 +40,13 @@ namespace WebCoreMvc.Controllers
             ViewBag.category = category;
             return View();
         }
+        [HttpPost]
         public IActionResult Save(Category category)
         {
             string route = (category.Id == 0) ? "Add" : "Update";
             if (category.Name == null)
             {
-                return RedirectToAction(route, new ErrorResult(category.Id, "Please enter Name"));
+                return BadRequest(new ErrorResult(category.Id, "Please enter Name"));
             }
             if (category.Id == 0)
             {
@@ -54,7 +56,7 @@ namespace WebCoreMvc.Controllers
             {
                 this._categoryRepository.Update(category);
             }
-            return RedirectToAction("Index");
+            return Ok(category);
         }
         public IActionResult Delete(int id)
         {
