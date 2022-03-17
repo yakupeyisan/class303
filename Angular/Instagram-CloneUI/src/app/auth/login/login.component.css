@@ -1,0 +1,35 @@
+.slider {
+  background-image: url("/assets/images/background-phone.png");
+  background-repeat: no-repeat;
+  width: 465px;
+  height: 635px;
+  margin-bottom: 12px;
+  margin-right: 32px;
+  margin-top: 30px;
+  position: relative;
+}
+.images{
+    width: 250px;
+    height: 540px;
+    position: absolute;
+    top: 26px;
+    left: 156px;
+}
+.images>img{
+    opacity: 0;
+    animation: imageAnimation 3s infinite;
+}
+@keyframes imageAnimation{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+} 
