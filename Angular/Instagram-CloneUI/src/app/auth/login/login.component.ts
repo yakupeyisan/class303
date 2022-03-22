@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
     "/assets/images/img-4.png"
   ]
   imgUrl="/assets/images/img-4.png"
+
+  buttonCss="opacity: .4;"
+
   constructor() { }
 
   ngOnInit(): void {
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
           "/assets/images/img-1.png":obj.images[index+1]
           break;
         }
-        
+
       }
     },3000);
   }

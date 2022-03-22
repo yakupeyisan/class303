@@ -1,0 +1,25 @@
+{
+    "products":[
+        {
+            "id":1,
+            "name":"Macbook",
+            "brand":"Apple",
+            "price":1200,
+            "currency":"USD"
+        },
+        {
+            "id":2,
+            "name":"IdeaPad",
+            "brand":"Lenovo",
+            "price":800,
+            "currency":"USD"
+        },
+        {
+            "id":3,
+            "name":"ThinkPad",
+            "brand":"Lenovo",
+            "price":1500,
+            "currency":"USD"
+        }
+    ]
+}

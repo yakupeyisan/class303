@@ -1,11 +1,30 @@
-<div class="container">
-    <div class="row justify-content-center" style="height: 80vh;">
-        <div class="col-6 align-self-center bg-light">
+<div class="container" style="width: 65%;">
+    <div class="row justify-content-center" style="height: 80vh; width: initial;">
+        <div class="col-6 align-self-center">
             <div class="slider">
                 <div class="images">
                     <img [src]="imgUrl">
                 </div>
             </div>
+        </div>
+        <div class="col-6">
+          <div class="row" style="height: 100%;">
+            <div class="align-self-center">
+              <div class="login bg-light p-5 border border-secondary">
+                <div class="text-center">
+                  <h1 class="logo"></h1>
+                </div>
+                <input type="text" class="form-control mb-1" placeholder="Telefon numarası, kullanıcı adı veya e-posta">
+                <input type="password" class="form-control mb-1" placeholder="Şifre">
+                <button class="btn btn-primary w-100 p-1" [style]="buttonCss">Giriş Yap</button>
+                <div class="separator">YA DA</div>
+                <button class="btn btn-link w-100 p-0 mt-4">Şifremi Unuttum</button>
+              </div>
+              <div class="register p-3 text-center border border-secondary mt-2">
+                Hesabın yok mu? <button class="btn btn-link p-0 fw-bold">Kaydol</button>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 </div>
