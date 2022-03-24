@@ -5,3 +5,6 @@ export interface Response{
 export interface DataResponse<T> extends Response{
   data:T
 }
+export interface AccessToken{
+
+}

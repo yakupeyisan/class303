@@ -2,29 +2,55 @@
   <form [formGroup]="registerForm" class="border border-secondary mt-4 p-4" style="width:450px">
     <h1 class="logo"></h1>
     <div class="form-group mb-1">
-      <input type="text" class="form-control" formControlName="userName" placeholder="Username">
+      <input type="text"
+      class="form-control"
+      formControlName="userName"
+      placeholder="Username"
+      (keyup)="keyUpFormValid()">
     </div>
     <div class="form-group mb-1">
-      <input type="email" class="form-control" formControlName="email" placeholder="Email">
+      <input type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Email"
+      (keyup)="keyUpFormValid()">
     </div>
     <div class="form-group mb-1">
-      <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name">
+      <input type="text"
+      class="form-control"
+      formControlName="fullName"
+      placeholder="Full Name"
+      (keyup)="keyUpFormValid()">
     </div>
     <div class="form-group mb-1">
-      <select class="form-control" formControlName="gender">
+      <select class="form-control"
+      formControlName="gender"
+      (change)="keyUpFormValid()">
         <option value="Kadın">Kadın</option>
         <option value="Erkek">Erkek</option>
         <option value="" selected disabled>Lütfen cinsiyetinizi seçiniz</option>
       </select>
     </div>
     <div class="form-group mb-1">
-      <input type="date" class="form-control" formControlName="birthDate" placeholder="Birth Date">
+      <input type="date"
+      class="form-control"
+      formControlName="birthDate"
+      placeholder="Birth Date"
+      (keyup)="keyUpFormValid()">
     </div>
     <div class="form-group mb-1">
-      <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      <input type="password"
+      class="form-control"
+      formControlName="password"
+      placeholder="Password"
+      (keyup)="keyUpFormValid()">
     </div>
     <div class="form-group mb-1">
-      <input type="password" class="form-control" formControlName="rePassword" placeholder="RePassword">
+      <input type="password"
+        class="form-control"
+        formControlName="rePassword"
+        placeholder="RePassword"
+        (keyup)="keyUpFormValid()">
     </div>
     <button class="btn btn-primary w-100 p-1" [style]="buttonCss" (click)="onRegister()">Register</button>
   </form>
