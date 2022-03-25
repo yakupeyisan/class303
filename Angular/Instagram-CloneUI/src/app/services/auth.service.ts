@@ -12,9 +12,7 @@ export class AuthService {
   apiUrl="https://localhost:5001/api/auth"
   constructor(private httpClient:HttpClient) { }
 
-  login(userForLogin:UserForLogin){
-
-  }
+  login(userForLogin:UserForLogin){}
   register(userForRegister:UserForRegister):Observable<Response>{
     return this.httpClient
       .post<Response>(this.apiUrl+"/register",userForRegister)
