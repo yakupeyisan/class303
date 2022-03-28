@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+    <form [formGroup]="activateForm" class="border border-secondary mt-4 p-4" style="width:450px">
+        <h1 class="logo"></h1>
+        <div class="form-group mb-1">
+            <input type="text" class="form-control" formControlName="code" placeholder="Dorulama Kodu">
+        </div>
+        <button class="btn btn-primary w-100 p-1" (click)="onActivate()">Doğrula</button>
+    </form>
+</div>

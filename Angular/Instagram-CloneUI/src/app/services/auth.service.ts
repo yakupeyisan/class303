@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserForRegister } from '../models/userForRegister';
 import { Response } from "../models/response"
+import { UserForActivate } from '../models/userForActivate';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,10 @@ export class AuthService {
   register(userForRegister:UserForRegister):Observable<Response>{
     return this.httpClient
       .post<Response>(this.apiUrl+"/register",userForRegister)
+  }
+  activate(userForActivate:UserForActivate):Observable<Response>{
+    return this.httpClient
+      .post<Response>(this.apiUrl+"/activate",userForActivate)
   }
 
 }
