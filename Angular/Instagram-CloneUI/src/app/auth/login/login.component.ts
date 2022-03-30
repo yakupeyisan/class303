@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserForLogin } from 'src/app/models/userForLogin';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm:FormGroup;
   images=[
     "/assets/images/img-1.png",
     "/assets/images/img-2.png",
@@ -16,10 +21,11 @@ export class LoginComponent implements OnInit {
 
   buttonCss="opacity: .4;"
 
-  constructor() { }
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.imageAnimation();
+    this.createLoginForm();
   }
   imageAnimation():void{
     var obj=this;
@@ -36,6 +42,25 @@ export class LoginComponent implements OnInit {
 
       }
     },3000);
+  }
+  createLoginForm(){
+    this.loginForm=this.formBuilder.group({
+      userName:["",Validators.required],
+      password:["",Validators.required]
+    })
+  }
+  onLogin(){
+    var data:UserForLogin=Object.assign({},this.loginForm.value);
+    this.authService.login(data).subscribe(
+      result=>{
+        localStorage.setItem("token",result.data.token);
+        localStorage.setItem("expiration",result.data.expiration.toString());
+        this.router.navigate(["/"]);
+      },
+      errorResult=>{
+        console.log(errorResult);
+      }
+    )
   }
 
 }

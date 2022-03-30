@@ -5,6 +5,7 @@ import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +19,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private authService:AuthService,
-    private toastr:ToastrService
-    ) {}
+    private toastr:ToastrService,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
     this.createRegisterForm();
@@ -55,6 +57,7 @@ export class RegisterComponent implements OnInit {
         icon: 'success',
         confirmButtonText: 'Tamam'
       })
+      this.router.navigate(['/auth/activate/'+result.data.id]);
      },errorResult=>{
       errorResult.error.Message.split("--").forEach((el:string) => {
         this.toastr.error(el);

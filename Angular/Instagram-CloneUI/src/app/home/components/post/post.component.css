@@ -1,0 +1,32 @@
+.avatar{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-info{
+    margin-left: 10px;
+
+}
+.card,.card div{
+    background-color: white !important;
+    border: none !important;
+}
+.card{
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+.indicators{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.indicators>span{
+    width: 10px;
+    height: 10px;
+    background-color: darkgray;
+    margin: 3px 5px;
+    border-radius: 50%;
+}
+.indicators>span.active{
+    background-color: #00bcd4;
+}

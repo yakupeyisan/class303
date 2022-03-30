@@ -6,12 +6,16 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ActivateComponent } from './activate/activate.component';
+import { StartResetPasswordComponent } from './start-reset-password/start-reset-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ActivateComponent
+    ActivateComponent,
+    StartResetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,

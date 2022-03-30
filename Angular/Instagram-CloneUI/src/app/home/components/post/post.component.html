@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card p-3 bg-light">
+    <div class="card-header d-flex">
+      <img
+        class="avatar"
+        src="https://thumbs.dreamstime.com/z/male-avatar-icon-portrait-handsome-young-man-face-businessman-suit-necktie-vector-illustration-%D0%B3%D1%9F%D0%B3%D2%91%D0%B3%C2%B7%D0%B3-%D0%B3%D1%96%D0%B3%D1%98-187127093.jpg"
+        alt=""
+      />
+      <div class="user-info">
+        <h3>title</h3>
+        <small>Place </small>
+      </div>
+    </div>
+    <div class="card-body">
+      <div
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            *ngFor="let image of post.images"
+            [class]="
+              image.isActive == true ? 'carousel-item active' : 'carousel-item'
+            "
+          >
+            <img [src]="image.src" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <div class="indicators">
+            <span *ngFor="let image of post.images" [class]="(image.isActive)?'active':''" (click)="changeImage(image)"></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <p>footer</p>
+    </div>
+  </div>
+</div>
