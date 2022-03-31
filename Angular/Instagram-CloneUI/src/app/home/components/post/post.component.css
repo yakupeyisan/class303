@@ -15,18 +15,46 @@
 .card{
     border-bottom: 1px solid #e0e0e0 !important;
 }
+.card-body{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.card-footer{
+    margin-top: 3px;
+}
 .indicators{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .indicators>span{
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: darkgray;
     margin: 3px 5px;
     border-radius: 50%;
 }
 .indicators>span.active{
     background-color: #00bcd4;
+}
+.icon-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.icon-bar>i{
+    font-size: 16px;
+    margin: 0 5px;
+    display: flex;
+    cursor: pointer;
+}
+.icon-bar>i:first-child{
+    margin-left: 0;
+}
+.icon-bar>i:last-child{
+    margin-left: auto;
+    margin-right: 0px;
+}
+.icon-bar>i:first-child.active{
+    color:rgb(252, 24, 24);
 }

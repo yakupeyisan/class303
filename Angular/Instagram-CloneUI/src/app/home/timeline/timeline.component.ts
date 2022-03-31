@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewPostInformation } from 'src/app/models/viewPostInformation';
+import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,10 +10,17 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./timeline.component.css']
 })
 export class TimeLineComponent implements OnInit {
-
-  constructor(private userService:UserService,private router:Router) { }
+  posts:ViewPostInformation[]=[];
+  constructor(private postService:PostService,private router:Router) { }
 
   ngOnInit(): void {
+    this.getAllPosts();
   }
+  getAllPosts(){
+    this.postService.getAllPosts().subscribe(result=>{
+      this.posts=result.data;
+    });
+  }
+
 
 }

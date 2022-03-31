@@ -15,5 +15,6 @@ export interface User{
   userName:string
   fullName:string
   status:boolean
+  avatar:string
 
 }

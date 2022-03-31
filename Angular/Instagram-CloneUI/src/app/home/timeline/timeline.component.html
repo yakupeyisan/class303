@@ -1,2 +1,3 @@
-<app-post></app-post>
-<app-post></app-post>
+<div class="col-md-6">
+    <app-post *ngFor="let post of posts" [post]="post"></app-post>
+</div>
