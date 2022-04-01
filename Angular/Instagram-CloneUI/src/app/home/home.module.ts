@@ -5,6 +5,9 @@ import { TimeLineComponent } from './timeline/timeline.component';
 import { PostComponent } from './components/post/post.component';
 import { HashtagMentionColLibModule } from 'hashtag-mention-colorizer';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { PostAddComponent } from './components/post-add/post-add.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,12 +15,16 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
   declarations: [
     TimeLineComponent,
     PostComponent,
-    TopBarComponent
+    TopBarComponent,
+    PostAddComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    HashtagMentionColLibModule
+    FormsModule,
+    ReactiveFormsModule,
+    HashtagMentionColLibModule,
+    NgxDropzoneModule
   ]
 })
 export class HomeModule { }

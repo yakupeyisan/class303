@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserForLogin } from 'src/app/models/userForLogin';
 import { AuthService } from 'src/app/services/auth.service';
+import { MessagerService } from 'src/app/services/messager.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit {
 
   buttonCss="opacity: .4; cursor:context-menu;"
 
-  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router) { }
+  constructor(
+    private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private router:Router,
+    private messager:MessagerService) { }
 
   ngOnInit(): void {
     this.imageAnimation();
@@ -53,13 +58,12 @@ export class LoginComponent implements OnInit {
     var data:UserForLogin=Object.assign({},this.loginForm.value);
     this.authService.login(data).subscribe(
       result=>{
+        this.messager.successWithSwal(result); 
         localStorage.setItem("token",result.data.token);
         localStorage.setItem("expiration",result.data.expiration.toString());
         this.router.navigate(["/"]);
       },
-      errorResult=>{
-        console.log(errorResult);
-      }
+      errorResult=>this.messager.error(errorResult)
     )
   }
   keyUpFormValid(){

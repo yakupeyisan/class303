@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { UserForStartResetPassword } from 'src/app/models/userForStartResetPassword';
 import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2';
+import { MessagerService } from 'src/app/services/messager.service';
 @Component({
   selector: 'app-start-reset-password',
   templateUrl: './start-reset-password.component.html',
@@ -16,7 +15,7 @@ export class StartResetPasswordComponent implements OnInit {
     private authService:AuthService,
     private formBuilder:FormBuilder,
     private router:Router,
-    private toastr:ToastrService) { }
+    private messager:MessagerService) { }
 
   ngOnInit(): void {
     this.createStartResetPasswordForm();
@@ -30,24 +29,10 @@ export class StartResetPasswordComponent implements OnInit {
     var data:UserForStartResetPassword=Object.assign({},this.startResetPasswordForm.value);
     this.authService.startResetPassword(data).subscribe(
       result=>{
-        Swal.fire({
-          title: 'Başarılı!',
-          text: result.message,
-          icon: 'success',
-          confirmButtonText: 'Tamam'
-        });
+        this.messager.successWithSwal(result);
         this.router.navigate(['/auth/reset-password/'+result.data]);
       },
-      errorResult=>{
-        if(errorResult.error.Message==undefined){
-          this.toastr.error(errorResult.error);
-          return;
-        }
-        errorResult.error.Message.split("--").forEach((el:string) => {
-          this.toastr.error(el);
-        });
-      }
-    )
+      errorResult=>this.messager.error(errorResult));
   }
 
 }

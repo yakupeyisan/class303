@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataResponse,Response } from '../models/response';
-import { PostLike, PostSave, ViewPostInformation } from '../models/viewPostInformation';
+import { PostAdd, PostLike, PostSave, ViewPostInformation } from '../models/viewPostInformation';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class PostService {
   }
   unSavePost(postSave:PostSave):Observable<Response>{
     return this.httpClient.post<Response>(this.apiUrl+"/un-save",postSave);
+  }
+  addPost(postAdd:PostAdd):Observable<Response>{
+    console.log(postAdd);
+    return this.httpClient.post<Response>(this.apiUrl+"/add",postAdd);
   }
 
 

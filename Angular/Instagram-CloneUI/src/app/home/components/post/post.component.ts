@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   constructor(private postService:PostService) { }
 
   ngOnInit(): void {
+    console.log(this.post);
     if(this.post.photos.length>0){
       this.post.photos[0].isActive=true;
     }

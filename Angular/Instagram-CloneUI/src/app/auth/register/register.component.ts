@@ -1,11 +1,9 @@
-import { ToastrService } from 'ngx-toastr';
 import { UserForRegister } from './../../models/userForRegister';
-import { AuthModule } from './../auth.module';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
+import { MessagerService } from 'src/app/services/messager.service';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private authService:AuthService,
-    private toastr:ToastrService,
-    private router:Router
+    private router:Router,
+    private messager:MessagerService
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +39,7 @@ export class RegisterComponent implements OnInit {
   }
   onRegister(){
      if(this.registerForm.valid==false){
-      Swal.fire({
+      this.messager.customSwal({
         title: 'Hata!',
         text: 'Formu eksiksiz doldurun',
         icon: 'error',
@@ -51,18 +49,9 @@ export class RegisterComponent implements OnInit {
      }
      var data:UserForRegister= Object.assign({}, this.registerForm.value);
      this.authService.register(data).subscribe(result=>{
-       Swal.fire({
-        title: 'Başarılı!',
-        text: result.message,
-        icon: 'success',
-        confirmButtonText: 'Tamam'
-      })
+       this.messager.successWithSwal(result);
       this.router.navigate(['/auth/activate/'+result.data.id]);
-     },errorResult=>{
-      errorResult.error.Message.split("--").forEach((el:string) => {
-        this.toastr.error(el);
-      });
-     });
+     },errorResult=>this.messager.error(errorResult));
   }
   keyUpFormValid(){
     this.buttonCss=(this.registerForm.valid==true)?

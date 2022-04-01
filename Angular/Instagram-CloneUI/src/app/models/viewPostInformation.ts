@@ -22,3 +22,9 @@ export interface PostSave {
     userId: number;
     postId: number;
 }
+
+export interface PostAdd {
+    files: string[];
+    location: string;
+    description: string;
+}

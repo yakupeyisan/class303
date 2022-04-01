@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { UserForActivate } from 'src/app/models/userForActivate';
 import { AuthService } from 'src/app/services/auth.service';
+import { MessagerService } from 'src/app/services/messager.service';
 
 @Component({
   selector: 'app-activate',
@@ -15,8 +15,8 @@ export class ActivateComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
     private route:ActivatedRoute,
     private authService:AuthService,
-    private toastr:ToastrService,
-    private router:Router) { }
+    private router:Router,
+    private messager:MessagerService) { }
 
   ngOnInit(): void {
     this.createActivateForm();
@@ -34,25 +34,15 @@ export class ActivateComponent implements OnInit {
   }
   onActivate():void{ 
     if(!this.activateForm.valid){
-      this.toastr.error("Formu eksiksiz doldurun");
+      this.messager.error("Formu eksiksiz doldurun");
       console.error(this.activateForm.errors);
       return;
     }
     var data:UserForActivate= Object.assign({}, this.activateForm.value);
     this.authService.activate(data).subscribe(result=>{
-      this.toastr.success(result.message);
-      //angular redirect login page
+      this.messager.successWithSwal(result);
       this.router.navigate(['/auth/login']);
-    },errorResult=>{
-      if(errorResult.error.Message==undefined)
-      {
-        this.toastr.error(errorResult.error);
-        return;
-      }
-      errorResult.error.Message.split("--").forEach((el:string) => {
-        this.toastr.error(el);
-      });
-    });
+    },errorResult=>this.messager.error(errorResult));
   }
 
 }

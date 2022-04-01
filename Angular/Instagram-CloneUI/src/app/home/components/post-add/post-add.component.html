@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+    <form [formGroup]="postAddForm" class="border border-secondary mt-4 p-4" style="width:450px">
+        <ngx-dropzone (change)="onSelect($event)" accept="image/*">
+            <ngx-dropzone-label>Sürükle Bırak</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of selectedFiles" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+        <div class="form-group">
+            <label for="location">Bölge</label>
+            <input class="form-control" formControlName="location">
+        </div>
+        <div class="form-group mb-2">
+            <label for="description">Açıklama</label>
+            <textarea class="form-control" formControlName="description" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary w-100 p-1" (click)="onSubmit()">Ekle</button>
+    </form>
+</div>

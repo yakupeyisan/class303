@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2';
+import { MessagerService } from 'src/app/services/messager.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -16,7 +15,7 @@ export class ResetPasswordComponent implements OnInit {
     private formBuilder:FormBuilder,
     private authService:AuthService,
     private router:Router,
-    private toastr:ToastrService) { }
+    private messager:MessagerService) { }
   ngOnInit(): void {
     this.createResetPasswordForm();
   }
@@ -32,23 +31,10 @@ export class ResetPasswordComponent implements OnInit {
     var data:any=Object.assign({},this.resetPasswordForm.value);
     this.authService.resetPassword(data).subscribe(
       result=>{
-        Swal.fire({
-          title: 'Başarılı!',
-          text: result.message,
-          icon: 'success',
-          confirmButtonText: 'Tamam'
-        });
+        this.messager.successWithSwal(result);
         this.router.navigate(['/auth/login']);
       },
-      errorResult=>{
-        if(errorResult.error.Message==undefined){
-          this.toastr.error(errorResult.error);
-          return;
-        }
-        errorResult.error.Message.split("--").forEach((el:string) => {
-          this.toastr.error(el);
-        });
-      }
+      errorResult=>this.messager.error(errorResult)
     )
   }
 }
