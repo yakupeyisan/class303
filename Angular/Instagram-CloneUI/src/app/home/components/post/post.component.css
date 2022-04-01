@@ -1,60 +1,73 @@
-.avatar{
-    height: 80px;
-    width: 80px;
+.avatar {
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     object-fit: cover;
 }
-.user-info{
-    margin-left: 10px;
 
+.user-info {
+    margin-left: 10px;
 }
-.card,.card div{
+
+.card,
+.card div {
     background-color: white !important;
     border: none !important;
 }
-.card{
+
+.card {
     border-bottom: 1px solid #e0e0e0 !important;
 }
-.card-body{
+
+.card-body {
     padding-top: 0px;
     padding-bottom: 0px;
 }
-.card-footer{
+
+.card-footer {
     margin-top: 3px;
 }
-.indicators{
+
+.indicators {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.indicators>span{
+
+.indicators>span {
     width: 8px;
     height: 8px;
     background-color: darkgray;
     margin: 3px 5px;
     border-radius: 50%;
 }
-.indicators>span.active{
+
+.indicators>span.active {
     background-color: #00bcd4;
 }
-.icon-bar{
+
+.icon-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.icon-bar>i{
+
+.icon-bar>i {
     font-size: 16px;
     margin: 0 5px;
     display: flex;
     cursor: pointer;
 }
-.icon-bar>i:first-child{
+
+.icon-bar>i:first-child {
     margin-left: 0;
 }
-.icon-bar>i:last-child{
+
+.icon-bar>i:last-child {
     margin-left: auto;
     margin-right: 0px;
 }
-.icon-bar>i:first-child.active{
-    color:rgb(252, 24, 24);
+
+.icon-bar>i:first-child.active {
+    color: rgb(252, 24, 24);
 }

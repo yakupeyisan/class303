@@ -1,50 +1,40 @@
-<div class="container">
-  <div class="card p-3 bg-light">
+<div class="card p-3 bg-light">
     <div class="card-header d-flex">
-      <img class="avatar" [src]="post.user.avatar" alt="" />
-      <div class="user-info">
-        <h3>{{ post.user.userName }}</h3>
-        <small>{{ post.location }}</small>
-      </div>
+        <img class="avatar" [src]="post.user.photo.url" alt="" />
+        <div class="user-info">
+            <h5 style="margin-bottom: -3px; margin-top: 6px;">{{ post.user.userName }}</h5>
+            <small class="text-muted">{{ post.location }}</small>
+        </div>
     </div>
     <div class="card-body">
-      <div class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div
-            *ngFor="let photo of post.photos"
-            [class]="
-            photo.isActive == true ? 'carousel-item active' : 'carousel-item'
-            "
-          >
-            <img [src]="photo.url" class="d-block w-100" alt="..." />
-          </div>
+        <div class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let photo of post.photos" [class]="photo.isActive == true ? 'carousel-item active' : 'carousel-item'">
+                    <img [src]="photo.url" class="d-block w-100" alt="..." />
+                </div>
+            </div>
+            <div class="indicators" *ngIf="post.photos.length>1">
+                <span *ngFor="let photo of post.photos" [class]="photo.isActive ? 'active' : ''" (click)="changeImage(photo)"></span>
+            </div>
         </div>
-        <div class="indicators">
-          <span
-            *ngFor="let photo of post.photos"
-            [class]="photo.isActive ? 'active' : ''"
-            (click)="changeImage(photo)"
-          ></span>
-        </div>
-      </div>
     </div>
     <div class="card-footer">
-      <div class="icon-bar">
-        <i [class]="post.isLiked ? 'fa fa-heart active' : 'fa fa-heart-o'"></i>
-        <i class="fa fa-comment-o"></i>
-        <i class="fa fa-paper-plane-o"></i>
-        <i [class]="post.isSaved ? 'fa fa-bookmark' : 'fa fa-bookmark-o'"></i>
-      </div>
-      <div class="views">
-        <span>{{ post.commentCount | number  }} views</span>
-      </div>
-      <div class="description pe-0">
-        <p class="m-0">
-          <b>{{ post.user.userName }}</b>
-          {{ post.description.substring(0, 97) }}...
-        </p>
-      </div>
-      <button class="view-more btn btn-link p-0 m-0">View all {{post.commentCount}} comments</button>
+        <div class="icon-bar">
+            <i [class]="post.isLiked ? 'fa fa-heart active' : 'fa fa-heart-o'" (click)="togglePostLike()"></i>
+            <i class="fa fa-comment-o"></i>
+            <i class="fa fa-paper-plane-o"></i>
+            <i [class]="post.isSaved ? 'fa fa-bookmark' : 'fa fa-bookmark-o'" (click)="togglePostSave()"></i>
+        </div>
+        <div class="views text-muted">
+            <span *ngIf="post.likeCount>0">{{ post.likeCount | number  }} beğenme</span>
+            <span *ngIf="post.likeCount<1">İlk beğenen sen ol</span>
+        </div>
+        <div class=" description pe-0 ">
+            <div class="m-0 ">
+                <b>{{ post.user.userName }}</b>
+                <p [innerHTML]="post.description.substring(0, 97) "></p>
+            </div>
+        </div>
+        <button class="view-more btn btn-link p-0 m-0 text-muted" *ngIf="post.commentCount>0">View all {{post.commentCount}} comments</button>
     </div>
-  </div>
 </div>

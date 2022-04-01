@@ -1,3 +1,5 @@
+import { Photo } from "./photo"
+
 export interface Response{
   success:boolean,
   message:string
@@ -15,6 +17,6 @@ export interface User{
   userName:string
   fullName:string
   status:boolean
-  avatar:string
+  photo:Photo
 
 }

@@ -14,3 +14,11 @@ export interface ViewPostInformation {
     commentCount: number;
     likeCount: number;
 }
+export interface PostLike {
+    userId: number;
+    postId: number;
+}
+export interface PostSave {
+    userId: number;
+    postId: number;
+}

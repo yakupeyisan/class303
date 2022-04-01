@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ]
   imgUrl="/assets/images/img-4.png"
 
-  buttonCss="opacity: .4;"
+  buttonCss="opacity: .4; cursor:context-menu;"
 
   constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router) { }
 
@@ -61,6 +61,11 @@ export class LoginComponent implements OnInit {
         console.log(errorResult);
       }
     )
+  }
+  keyUpFormValid(){
+    this.buttonCss=(this.loginForm.valid==true)?
+    "opacity: 1; cursor:pointer;":
+    "opacity: .4; cursor:context-menu;"
   }
 
 }

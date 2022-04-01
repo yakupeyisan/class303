@@ -8,23 +8,23 @@
             </div>
         </div>
         <div class="col-6 loginbar">
-          <div class="row" style="height: 100%;">
-            <div class="align-self-center">
-              <form [formGroup]="loginForm" class="login bg-light p-5 border border-secondary">
-                <div class="text-center">
-                  <h1 class="logo"></h1>
+            <div class="row" style="height: 100%;">
+                <div class="align-self-center">
+                    <form [formGroup]="loginForm" class="login bg-light p-5 border border-secondary">
+                        <div class="text-center">
+                            <h1 class="logo"></h1>
+                        </div>
+                        <input type="text" formControlName="userName" class="form-control mb-1" (keyup)="keyUpFormValid()" placeholder="Telefon numarası, kullanıcı adı veya e-posta">
+                        <input type="password" formControlName="password" class="form-control mb-1" (keyup)="keyUpFormValid()" placeholder="Şifre">
+                        <button class="btn btn-primary w-100 p-1" [style]="buttonCss" (click)="onLogin()">Giriş Yap</button>
+                        <div class="separator">YA DA</div>
+                        <button class="btn btn-link w-100 p-0 mt-4" [routerLink]="['/auth/start-reset-password']">Şifremi Unuttum</button>
+                    </form>
+                    <div class="register p-3 text-center border border-secondary mt-2">
+                        Hesabın yok mu? <button class="btn btn-link p-0 fw-bold" [routerLink]="['/auth/register']" routerLinkActive="router-link-active">Kaydol</button>
+                    </div>
                 </div>
-                <input type="text" formControlName="userName" class="form-control mb-1" placeholder="Telefon numarası, kullanıcı adı veya e-posta">
-                <input type="password" formControlName="password" class="form-control mb-1" placeholder="Şifre">
-                <button class="btn btn-primary w-100 p-1" [style]="buttonCss" (click)="onLogin()">Giriş Yap</button>
-                <div class="separator">YA DA</div>
-                <button class="btn btn-link w-100 p-0 mt-4" [routerLink]="['/auth/start-reset-password']">Şifremi Unuttum</button>
-              </form>
-              <div class="register p-3 text-center border border-secondary mt-2">
-                Hesabın yok mu? <button class="btn btn-link p-0 fw-bold" [routerLink]="['/auth/register']" routerLinkActive="router-link-active" >Kaydol</button>
-              </div>
             </div>
-          </div>
         </div>
     </div>
 </div>

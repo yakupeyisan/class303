@@ -18,7 +18,11 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
     {
         if(localStorage.getItem("token")==null){
-            return false;
+          localStorage.removeItem("token");
+          localStorage.removeItem("expiration");
+          this.router.navigate(["/auth/login"]);
+          this.toastrService.info("You are not logged in");
+          return false;
         }
         var response= this.authService.isAuthenticated()
         response.subscribe(
