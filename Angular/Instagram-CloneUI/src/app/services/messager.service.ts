@@ -17,6 +17,10 @@ export class MessagerService {
       this.toastr.error("Bilinmeyen hata oluştu!");
       return;
     }
+    if(errorResult.error.Message==undefined && typeof errorResult.error != "string"){
+      this.toastr.error(errorResult.statusText);
+      return;
+    }
     if(errorResult.error.Message==undefined){
       this.toastr.error(errorResult.error);
       return;

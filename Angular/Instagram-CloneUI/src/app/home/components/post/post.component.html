@@ -36,5 +36,15 @@
             </div>
         </div>
         <button class="view-more btn btn-link p-0 m-0 text-muted" *ngIf="post.commentCount>0">View all {{post.commentCount}} comments</button>
+        <div class="comment-group">
+            <form [formGroup]="commentForm" class="comment-item">
+                <div class="comment-content">
+                    <textarea class="form-control" formControlName="comment" placeholder="Yorum yap..."></textarea>
+                </div>
+                <div class="comment-actions pt-2 d-flex flex-row-reverse">
+                    <button class="btn btn-primary" (click)="onComment()">Yorum yap</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

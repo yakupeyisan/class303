@@ -28,3 +28,9 @@ export interface PostAdd {
     location: string;
     description: string;
 }
+
+export interface PostComment {
+    userId: number;
+    postId: number;
+    comment: string;
+}

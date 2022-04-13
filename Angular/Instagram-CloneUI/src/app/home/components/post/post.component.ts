@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Photo } from 'src/app/models/photo';
-import { PostLike, PostSave, ViewPostInformation } from 'src/app/models/viewPostInformation';
+import { PostComment, PostLike, PostSave, ViewPostInformation } from 'src/app/models/viewPostInformation';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -10,13 +11,20 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostComponent implements OnInit {
   @Input() post: ViewPostInformation;
-  constructor(private postService:PostService) { }
+  commentForm:FormGroup;
+  constructor(private postService:PostService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-    console.log(this.post);
     if(this.post.photos.length>0){
       this.post.photos[0].isActive=true;
     }
+    this.createCommentForm();
+  }
+  createCommentForm():void{
+    this.commentForm=this.formBuilder.group({
+      postId:['',Validators.required],
+      comment: ['', Validators.required]
+    });
   }
   changeImage(image: any) {
     this.post.photos.forEach(image => {
@@ -89,6 +97,11 @@ export class PostComponent implements OnInit {
     }else{
       this.savePost();
     }
+  }
+  onComment(){
+    var comment:PostComment=Object.assign({},this.commentForm.value);
+    comment.postId=this.post.id;
+    console.log(comment);
   }
 
 }
